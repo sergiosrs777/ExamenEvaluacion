@@ -1,13 +1,9 @@
 def buscarPalabra(objetivo, palabras):
-
-
-    while True: 
-        salida = "exit"
-        palabras = str("Buscar nombre:"+ str(input))
-        if (objetivo == palabras): 
+    for x in palabras:
+        if x == objetivo:
             return True
-        elif (palabras == salida):
-            print("FIN DEL PROGRAMA")
+    
+    return False
 
 def imprimirListaInversa(lista):
     return lista[:: -1]
@@ -22,10 +18,13 @@ edades = {
 
 print(imprimirListaInversa(nombres))
 
-
-nombre = "Mengano"
-# el usuario te da la palabra
-if buscarPalabra(nombre,nombres) == True: 
-    print(str(edades))
-    # le paso la palabra, y me devuelve si esta o no
+while True:
+    nombre = str(input("Buscar nombre: "))
+    if buscarPalabra(nombre,nombres) == True: 
+        print("La palabra existe")
+    elif (nombre == "exit"):
+        print("FIN DEL PROGRAMA")    
+    else:
+        print("No existe")
+    
     
